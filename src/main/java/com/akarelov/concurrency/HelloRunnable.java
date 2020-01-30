@@ -3,17 +3,13 @@ package com.akarelov.concurrency;
 public class HelloRunnable implements Runnable {
     @Override
     public void run() {
-        int count = 0;
         while (true) {
-            System.out.println("hello from HelloRunnable object!!!");
+            System.out.println("hello from HelloRunnable object!!! " + Thread.currentThread());
+
             try {
-                Thread.currentThread().sleep(2000);
+                Thread.currentThread().sleep(1000);
             } catch (InterruptedException e) {
-                            }
-            count++;
-            if (count > 10) {
-                Thread.currentThread().interrupt();
-                break;
+
             }
         }
     }
