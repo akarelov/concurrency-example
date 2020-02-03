@@ -2,10 +2,11 @@ package com.akarelov.concurrency;
 
 public class Application {
     public static void main(String[] args) {
-        HelloThread helloThread = new HelloThread();
-        helloThread.start();
-        HelloRunnable helloRunnable = new HelloRunnable();
-        new Thread(helloRunnable).start();
-        helloRunnable.run();
+        HelloThread thread = new HelloThread();
+        HelloThread thread2 = new HelloThread();
+
+        thread.start();
+        thread2.start();
+
     }
 }

@@ -1,16 +1,16 @@
 package com.akarelov.concurrency;
 
 public class HelloThread extends Thread {
+    private static volatile int count = 0;
+
     @Override
     public void run() {
-        while (true) {
-            System.out.println("hello from HelloThread object!!! " + Thread.currentThread());
+        inc();
+    }
 
-            try {
-                Thread.currentThread().sleep(1000);
-            } catch (InterruptedException e) {
-
-            }
-        }
+    synchronized void inc() {
+        count++;
+        System.out.println(Thread.currentThread() + "||count: " + count);
+        run();
     }
 }
